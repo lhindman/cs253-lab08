@@ -265,7 +265,7 @@ Enter the new quantity:
 
 
 ### Implementation Guide
-1. Expand the folder named LabActivity and open the file named service_invoice.c
+1. Expand the folder named LabActivity and open each of the source (.c) and header (.h) files
 2. Enter the program code to create an application as described in the Problem Description.
 3. Test the program using to ensure it functions as expected.
 4. Commit the changes to your local repository with a message stating that LabActivity is completed.
