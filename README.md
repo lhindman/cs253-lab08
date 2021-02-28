@@ -94,14 +94,18 @@ Total: $13
 This program extends the earlier "Online shopping cart" program. Please copy ItemToPurchase.c and ItemToPurchase.h from the LabWarmup folder into the LabActivity folder.  
 
 <br />
-1. Extend the ItemToPurchase struct to contain a new data member.   
+1. Updates to ItemToPurchase.c and ItemToPurchase.h
 
-- char itemDescription[ ] - set to "none" in MakeItemBlank() 
+- Extend the ItemToPurchase struct to contain a new data member called itemDescription. It should hold a maximum of 80 characters, including the '\0' terminator.   
 
-Implement the following related functions for the ItemToPurchase struct.
+```
+char itemDescription[] 
+```
+- Extend the MakeItemBlack() function in ItemToPurchase.c so that it sets the itemDescription member to "none"
 
-- PrintItemDescription()
-   - Has an ItemToPurchase parameter.
+- Add a function declaration for PrintItemDescription() to ItemToPurchase.h and implement it in ItemToPurchase.c. This function takes an ItemToPurchase struct as a parameter and outputs the itemName and itemDescription as shown in the output below:
+   - itemName: Bottled Water
+   - itemDescription: Deer Park, 12 oz.
 
 <br />
 Ex. of PrintItemDescription() output:
@@ -110,39 +114,27 @@ Ex. of PrintItemDescription() output:
 Bottled Water: Deer Park, 12 oz.
 ```
 <br />
-2. Create three new files:
+2. Define each of the functions declared in the ShoppingCart.h header file by implementing them in ShoppingCart.c
 
-- ShoppingCart.h - struct definition and related function declarations
-- ShoppingCart.c - related function definitions
-- main.c - main() function (Note: main()'s functionality differs from the warm up)
+The ShoppingCart struct as well as function declarations for the related functions described below have been provided in ShoppingCart.h.  Please do not modify the provided ShoppingCart.h file. Details regarding each function as well as expected return values are included in the comments associated with each function declaration in ShoppingCart.h.  Please study those comments carefully before beginning implementation.  
 
-Build the ShoppingCart struct with the following data members and related functions. Note: Some can be function stubs (empty functions) initially, to be completed in later steps.
+**Note:** Some functions can initially be function stubs (empty functions), to be completed 
+in later steps. 
 
-- Data members 
+The following is a summary of this content:  
+-Data members 
    - char customerName [ ]
    - char currentDate [ ]
    - ItemToPurchase cartItems [ ] - has a maximum of 10 slots (can hold up to 10 items of any quantity)
    - int cartSize - the number of filled slots in array cartItems [ ] (number of items in cart of any quantity)
-- Related functions
-   - AddItem()
-      - Adds an item to cartItems array. Has parameters ItemToPurchase and ShoppingCart. Returns ShoppingCart object.
-   - RemoveItem()
-      - Removes item from cartItems array (does not just set quantity to 0; removed item will not take up a slot in array). Has a char[ ](an item's name) and a ShoppingCart parameter. Returns ShoppingCart object.
-      - If item name cannot be found, output this message: `Item not found in cart. Nothing removed.`
-   - ModifyItem()
-      - Modifies an item's description, price, and/or quantity. Has parameters ItemToPurchase and ShoppingCart. Returns ShoppingCart object.
-   - GetNumItemsInCart() 
-      - Returns quantity of all items in cart. Has a ShoppingCart parameter.
-   - GetCostOfCart() 
-      - Determines and returns the total cost of items in cart. Has a ShoppingCart parameter. 
-   - PrintTotal()
-      - Outputs total of objects in cart. Has a ShoppingCart parameter.
-      - If cart is empty, output this message: `SHOPPING CART IS EMPTY`
-   - PrintDescriptions()
-      - Outputs each item's description. Has a ShoppingCart parameter.
 
-<br />
-Ex. of PrintTotal() output:
+-Related functions
+   - AddItem()
+   - RemoveItem()
+   - ModifyItem()
+   - GetNumItemsInCart() 
+   - GetCostOfCart() 
+   - PrintInvoice()
 
 ```
 John Doe's Shopping Cart - February 1, 2016
@@ -154,8 +146,7 @@ Powerbeats 2 Headphones 1 @ $128 = $128
 
 Total: $521
 ```
-<br />
-Ex. of PrintDescriptions() output:
+   - PrintDescriptions()
 
 ```
 John Doe's Shopping Cart - February 1, 2016
@@ -179,14 +170,12 @@ Customer Name: John Doe
 Today's Date: February 1, 2016
 ```
 <br />
-4. Implement the PrintMenu() function. PrintMenu() has a ShoppingCart parameter, and outputs a menu of options to manipulate the shopping cart. Each option is represented by a single character. Build and output the menu within the function.
+4. Implement the program menu in the provided main.c source file.  You may implement this directly in main() or by creating a PrintMenu() function that takes a ShoppingCart as a parameter. Each option is represented by a single character as shown in the example output below. If the an invalid character is entered, continue to prompt for a valid choice. Continue to execute the menu until the user enters q to Quit.  
 
-If the an invalid character is entered, continue to prompt for a valid choice. *Hint: Implement Quit before implementing other options.*
-Call PrintMenu() in the main() function. Continue to execute the menu until the user enters q to Quit. 
-<br /><br />
+*Hint: Implement Quit before implementing other options.*
 
 ```
-MENU
+PROGRAM MENU
 a - Add item to cart
 r - Remove item from cart
 c - Change item quantity
@@ -195,38 +184,9 @@ o - Output shopping cart
 q - Quit
 
 Choose an option:
-
 ```
 <br />
-5. Implement the "Output shopping cart" menu option.
-<br /><br />
-
-```
-OUTPUT SHOPPING CART
-John Doe's Shopping Cart - February 1, 2016
-Number of Items: 8
-
-Nike Romaleos 2 @ $189 = $378
-Chocolate Chips 5 @ $3 = $15
-Powerbeats Headphones 1 @ $128 = $128
-
-Total: $521
-```
-<br />
-6. Implement the "Output item's description" menu option. 
-<br /><br />
-
-```
-OUTPUT ITEMS' DESCRIPTIONS
-John Doe's Shopping Cart - February 1, 2016
-
-Item Descriptions
-Nike Romaleos: Volt color, Weightlifting shoes
-Chocolate Chips: Semi-sweet
-Powerbeats Headphones: Bluetooth headphones
-```
-<br />
-7. Implement "Add item to cart" menu option. 
+5. Implement "Add item to cart" menu option. 
 <br /><br />
 
 ```
@@ -240,12 +200,39 @@ Enter the item price:
 Enter the item quantity:
 2
 ```
+
+<br />
+6. Implement the "Output shopping cart" menu option.
+<br /><br />
+
+```
+John Doe's Shopping Cart - February 1, 2016
+Number of Items: 8
+
+Nike Romaleos 2 @ $189 = $378
+Chocolate Chips 5 @ $3 = $15
+Powerbeats Headphones 1 @ $128 = $128
+
+Total: $521
+```
+<br />
+7. Implement the "Output item's description" menu option. 
+<br /><br />
+
+```
+John Doe's Shopping Cart - February 1, 2016
+
+Item Descriptions
+Nike Romaleos: Volt color, Weightlifting shoes
+Chocolate Chips: Semi-sweet
+Powerbeats Headphones: Bluetooth headphones
+```
+
 <br />
 8. Implement the "Remove item from cart" menu option. 
 <br /><br />
 
 ```
-REMOVE ITEM FROM CART
 Enter name of item to remove:
 Chocolate Chips
 ```
@@ -256,7 +243,6 @@ Chocolate Chips
 <br /><br />
 
 ```
-CHANGE ITEM QUANTITY
 Enter the item name:
 Nike Romaleos
 Enter the new quantity:

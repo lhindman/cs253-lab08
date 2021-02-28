@@ -14,7 +14,7 @@ CFLAGS = -Wall -Wextra -Wpointer-arith -Wstrict-prototypes -std=c99 -g
 build: myprog
 
 
-myprog: main.o 
+myprog: main.o ItemToPurchase.o
 	$(CC) $(CFLAGS) $^ -o $@ 
 
 
