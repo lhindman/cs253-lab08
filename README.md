@@ -116,9 +116,11 @@ Bottled Water: Deer Park, 12 oz.
 <br />
 2. Define each of the functions declared in the ShoppingCart.h header file by implementing them in ShoppingCart.c
 
-The ShoppingCart struct as well as function declarations for the related functions described below have been provided in ShoppingCart.h.  Please do not modify the provided ShoppingCart.h file. Details regarding each function as well as expected return values are included in the comments associated with each function declaration in ShoppingCart.h.  Please study those comments carefully before beginning implementation.  
+The ShoppingCart struct as well as function declarations for the related functions described below have been provided in ShoppingCart.h. Details regarding each function as well as expected return values are included in the comments associated with each function declaration in ShoppingCart.h.  Please study those comments carefully before beginning implementation.  
 
-**Note:** Some functions can initially be function stubs (empty functions), to be completed 
+**DO NOT MODIFY THE PROVIDED ShoppingCart.h HEADER FILE**
+
+**Hint:** Some functions can initially be function stubs (empty functions), to be completed 
 in later steps. 
 
 The following is a summary of this content:  
