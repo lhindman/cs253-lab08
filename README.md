@@ -123,14 +123,14 @@ The ShoppingCart struct as well as function declarations for the related functio
 **Hint:** Some functions can initially be function stubs (empty functions), to be completed 
 in later steps. 
 
-The following is a summary of this content:  
--Data members 
+The following is a summary of ShoppingCart.h header  
+- ShoppingCart Structure
    - char customerName [ ]
    - char currentDate [ ]
    - ItemToPurchase cartItems [ ] - has a maximum of 10 slots (can hold up to 10 items of any quantity)
    - int cartSize - the number of filled slots in array cartItems [ ] (number of items in cart of any quantity)
 
--Related functions
+- ShoppingCart Functions
    - AddItem()
    - RemoveItem()
    - ModifyItem()
