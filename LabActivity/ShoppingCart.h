@@ -45,9 +45,12 @@ ShoppingCart AddItem(ItemToPurchase item, ShoppingCart cart);
 ShoppingCart RemoveItem(char name[], ShoppingCart cart);
 
 /* ModifyItem: Modify the first occurrance of an item (starting with position 0) in the 
- *   ShoppingCart that matches the name of the specified item. To modify the item, update the
- *   itemPrice, itemQuanity and itemDescriptions members to match those of the specified item.
- * 
+ *   ShoppingCart that matches the name of the specified item. The calling code should first
+ *   initialize the item to a known state by calling MakeItemBlank(), then set the itemName and 
+ *   any desired members to update. The ModifyItem() function should update the
+ *   itemPrice, itemQuanity and/or itemDescriptions members to match those of the specified item if 
+ *   they have changed from the default value (set by MakeItemBlank()).
+ *
  *   If there are no matching items in the ShoppingCart or if the ShoppingCart is empty, display a message in the terminal
  *   stating that no matching items were found and make no changes to the ShoppingCart.  
  * 
